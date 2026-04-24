@@ -7,7 +7,7 @@
       "request": "launch",
       "mainClass": "application.Main",
       "vmArgs": "--module-path \your-java-fx-lib-path\" --add-modules javafx.controls,javafx.fxml",
-      "projectName": "Automata_Robot_847209ab"
+      "projectName": "Automata_Robot_xxx"
     }
   ]
 }
