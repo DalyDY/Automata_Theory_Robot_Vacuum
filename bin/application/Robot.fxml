@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="730.0" prefWidth="800.0" style="-fx-background-color: #f3f3f5;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RobotController">
+
+    <padding>
+        <Insets bottom="10" left="10" right="10" top="10" />
+    </padding>
+
+    <center>
+        <VBox spacing="12" BorderPane.alignment="CENTER">
+            <children>
+                <VBox prefWidth="556.0" spacing="8" style="-fx-background-color: white; -fx-background-radius: 14; -fx-border-radius: 14; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 12, 0.15, 0, 3);">
+                    <padding>
+                        <Insets bottom="12" left="12" right="12" top="12" />
+                    </padding>
+                    <children>
+                        <Label style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Command Sequence" />
+                        <TextArea fx:id="commandBox" editable="false" focusTraversable="false" prefHeight="80.0" promptText="Click the buttons on the right to build the command sequence..." wrapText="true" />
+                        <Label fx:id="statusLabel" style="-fx-font-size: 12px; -fx-text-fill: #6b7280;" text="Status: Waiting for commands" />
+                    </children>
+                </VBox>
+
+                <GridPane fx:id="boardGrid" alignment="TOP_LEFT" hgap="16.0" style="-fx-border-color: white; -fx-border-radius: 8; -fx-background-radius: 8;" vgap="16.0">
+                    <columnConstraints>
+                        <ColumnConstraints prefWidth="55.0" />
+                        <ColumnConstraints prefWidth="55.0" />
+                        <ColumnConstraints prefWidth="55.0" />
+                        <ColumnConstraints prefWidth="55.0" />
+                        <ColumnConstraints prefWidth="55.0" />
+                        <ColumnConstraints prefWidth="55.0" />
+                        <ColumnConstraints prefWidth="55.0" />
+                        <ColumnConstraints prefWidth="55.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints prefHeight="55.0" />
+                        <RowConstraints prefHeight="55.0" />
+                        <RowConstraints prefHeight="55.0" />
+                        <RowConstraints prefHeight="55.0" />
+                        <RowConstraints prefHeight="55.0" />
+                        <RowConstraints prefHeight="55.0" />
+                        <RowConstraints prefHeight="55.0" />
+                        <RowConstraints prefHeight="55.0" />
+                    </rowConstraints>
+                    <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.rowIndex="1" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="1" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="2" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="3" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="4" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="5" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="6" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="7" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.rowIndex="2" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.rowIndex="3" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.rowIndex="4" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.rowIndex="5" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.rowIndex="6" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="7" GridPane.rowIndex="5" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="7" GridPane.rowIndex="6" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="6" GridPane.rowIndex="6" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.rowIndex="7" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="5" GridPane.rowIndex="7" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="6" GridPane.rowIndex="7" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" GridPane.columnIndex="7" GridPane.rowIndex="7" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" />
+                    </children>
+                </GridPane>
+            </children>
+        </VBox>
+    </center>
+
+    <right>
+        <VBox prefHeight="710.0" prefWidth="218.0" spacing="8" style="-fx-background-color: white; -fx-background-radius: 14; -fx-border-radius: 14; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.10), 12, 0.15, 0, 3);" BorderPane.alignment="TOP_CENTER">
+            <padding>
+                <Insets bottom="16" left="16" right="16" top="16" />
+            </padding>
+
+            <HBox alignment="CENTER_LEFT" spacing="8">
+                <Label style="-fx-font-size: 12px; -fx-font-weight: bold;" text="Energy:" />
+                <FlowPane fx:id="energyPane" hgap="4" prefHeight="28.0" prefWidth="110.0" vgap="4" />
+            </HBox>
+
+            <HBox alignment="CENTER_LEFT" spacing="6">
+                <Label style="-fx-font-size: 12px; -fx-font-weight: bold;" text="Carrying:" />
+                <Label fx:id="carryingLabel" style="-fx-font-size: 12px; -fx-text-fill: #96a0b2;" text="Empty" />
+            </HBox>
+
+            <HBox alignment="CENTER_LEFT" spacing="6">
+                <Label style="-fx-font-size: 12px; -fx-font-weight: bold;" text="Direction:" />
+                <Label fx:id="directionLabel" style="-fx-font-size: 12px;" text="Forward" />
+            </HBox>
+
+            <Pane prefHeight="1" style="-fx-background-color: #e3e5e8;" />
+
+            <Button fx:id="btnStart" maxWidth="Infinity" onAction="#onStart" prefHeight="34" style="-fx-background-color: #08c548; -fx-text-fill: white; -fx-font-size: 12px; -fx-font-weight: bold; -fx-background-radius: 6;" text="Start" />
+            <Button fx:id="btnRecharge" maxWidth="Infinity" onAction="#onRecharge" prefHeight="34" style="-fx-background-color: green; -fx-text-fill: white; -fx-font-size: 12px; -fx-font-weight: bold; -fx-background-radius: 6;" text="Recharge" />
+
+            <HBox spacing="6">
+                <Button fx:id="btnTurnLeft" maxWidth="Infinity" onAction="#onTurnLeft" prefHeight="52" style="-fx-background-color: #a541f2; -fx-text-fill: white; -fx-font-size: 11px; -fx-font-weight: bold; -fx-background-radius: 6;" text="Turn Left" HBox.hgrow="ALWAYS" />
+                <Button fx:id="btnTurnRight" maxWidth="Infinity" onAction="#onTurnRight" prefHeight="52" style="-fx-background-color: #a541f2; -fx-text-fill: white; -fx-font-size: 11px; -fx-font-weight: bold; -fx-background-radius: 6;" text="Turn Right" HBox.hgrow="ALWAYS" />
+            </HBox>
+
+            <Button fx:id="btnMoveBackward" maxWidth="Infinity" onAction="#onMoveBackward" prefHeight="34" style="-fx-background-color: #347cf0; -fx-text-fill: white; -fx-font-size: 12px; -fx-font-weight: bold; -fx-background-radius: 6;" text="Move Backward" />
+            <Button fx:id="btnMoveForward" maxWidth="Infinity" onAction="#onMoveForward" prefHeight="34" style="-fx-background-color: #347cf0; -fx-text-fill: white; -fx-font-size: 12px; -fx-font-weight: bold; -fx-background-radius: 6;" text="Move Forward" />
+            <Button fx:id="btnPickUp" maxWidth="Infinity" onAction="#onPickUp" prefHeight="34" style="-fx-background-color: #f39a00; -fx-text-fill: white; -fx-font-size: 12px; -fx-font-weight: bold; -fx-background-radius: 6;" text="Pick Up" />
+            <Button fx:id="btnDrop" disable="true" maxWidth="Infinity" onAction="#onDrop" prefHeight="34" style="-fx-background-color: #c7cbd3; -fx-text-fill: white; -fx-font-size: 12px; -fx-font-weight: bold; -fx-background-radius: 6;" text="Drop" />
+            <Button fx:id="btnStop" maxWidth="Infinity" onAction="#onStop" prefHeight="34" style="-fx-background-color: red; -fx-text-fill: white; -fx-font-size: 12px; -fx-font-weight: bold; -fx-background-radius: 6;" text="Stop" />
+
+            <Pane prefHeight="1" style="-fx-background-color: #e3e5e8;" />
+
+            <Button fx:id="btnValidate" maxWidth="Infinity" onAction="#onValidate" prefHeight="34" style="-fx-background-color: #111827; -fx-text-fill: white; -fx-font-size: 12px; -fx-font-weight: bold; -fx-background-radius: 6;" text="Validate" />
+            <Button fx:id="btnClear" maxWidth="Infinity" onAction="#onClear" prefHeight="34" style="-fx-background-color: #9ca3af; -fx-text-fill: white; -fx-font-size: 12px; -fx-font-weight: bold; -fx-background-radius: 6;" text="Reset Command" />
+        </VBox>
+    </right>
+
+</BorderPane>
