@@ -160,7 +160,7 @@
             <Button fx:id="btnMoveBackward" maxWidth="Infinity" onAction="#onMoveBackward" prefHeight="34" style="-fx-background-color: #347cf0; -fx-text-fill: white; -fx-font-size: 12px; -fx-font-weight: bold; -fx-background-radius: 6;" text="Move Backward" />
             <Button fx:id="btnMoveForward" maxWidth="Infinity" onAction="#onMoveForward" prefHeight="34" style="-fx-background-color: #347cf0; -fx-text-fill: white; -fx-font-size: 12px; -fx-font-weight: bold; -fx-background-radius: 6;" text="Move Forward" />
             <Button fx:id="btnPickUp" maxWidth="Infinity" onAction="#onPickUp" prefHeight="34" style="-fx-background-color: #f39a00; -fx-text-fill: white; -fx-font-size: 12px; -fx-font-weight: bold; -fx-background-radius: 6;" text="Pick Up" />
-            <Button fx:id="btnDrop" disable="true" maxWidth="Infinity" onAction="#onDrop" prefHeight="34" style="-fx-background-color: #c7cbd3; -fx-text-fill: white; -fx-font-size: 12px; -fx-font-weight: bold; -fx-background-radius: 6;" text="Drop" />
+            <Button fx:id="btnDrop" maxWidth="Infinity" onAction="#onDrop" prefHeight="34" style="-fx-background-color: #c7cbd3; -fx-text-fill: white; -fx-font-size: 12px; -fx-font-weight: bold; -fx-background-radius: 6;" text="Drop" />
             <Button fx:id="btnStop" maxWidth="Infinity" onAction="#onStop" prefHeight="34" style="-fx-background-color: red; -fx-text-fill: white; -fx-font-size: 12px; -fx-font-weight: bold; -fx-background-radius: 6;" text="Stop" />
 
             <Pane prefHeight="1" style="-fx-background-color: #e3e5e8;" />
