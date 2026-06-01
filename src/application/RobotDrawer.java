@@ -22,10 +22,17 @@ public final class RobotDrawer {
         Circle eye = new Circle(EYE_RADIUS, Color.web("#4a90e2"));
 
         switch (direction.toUpperCase()) {
-            case "SOUTH" -> eye.setTranslateY(EYE_OFFSET);
-            case "WEST" -> eye.setTranslateX(-EYE_OFFSET);
-            case "EAST" -> eye.setTranslateX(EYE_OFFSET);
-            default -> eye.setTranslateY(-EYE_OFFSET);
+            case "SOUTH":
+                eye.setTranslateY(EYE_OFFSET);
+                break;
+            case "WEST":
+                eye.setTranslateX(-EYE_OFFSET);
+                break;
+            case "EAST":
+                eye.setTranslateX(EYE_OFFSET);
+                break;
+            default:
+                eye.setTranslateY(-EYE_OFFSET);
         }
 
         cell.getChildren().addAll(body, eye);
