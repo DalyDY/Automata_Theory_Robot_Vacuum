@@ -7,13 +7,18 @@ package application;
 //   H0 = currently holding (first pick)
 //   N1 = dropped at least once (pick-drop task done)
 //   H1 = currently holding again (second pick onwards)
-enum Dir { N, E, S, W }
-enum Obj { N0, H0, N1, H1 }
+enum Dir {
+    N, E, S, W
+}
+
+enum Obj {
+    N0, H0, N1, H1
+}
 
 public class RobotFA {
 
     // Robot state
-    public int x = 0; // column (0 = left,  7 = right)
+    public int x = 0; // column (0 = left, 7 = right)
     public int y = 0; // row (0 = bottom, 7 = top)
     public Dir dir = Dir.N; // facing direction
     public int energy = 3; // energy units remaining (max 3)
@@ -26,8 +31,7 @@ public class RobotFA {
     boolean moved = false; // has the robot moved at least once?
     String loop = ""; // tracks the last few commands for loop detection
 
-
-    // Main method: process one command 
+    // Main method: process one command
     // Returns true if the command was valid, false if it broke a rule.
     public boolean step(String cmd) {
 
@@ -77,14 +81,13 @@ public class RobotFA {
     }
 
     // Getters used by RobotController
-    public boolean isAccepted() { 
-        return accepted; 
+    public boolean isAccepted() {
+        return accepted;
     }
 
-    public boolean isStarted()  {
-        return started;  
+    public boolean isStarted() {
+        return started;
     }
-
 
     // Move forward (F) or backward (B)
     private boolean move(String cmd) {
@@ -125,13 +128,15 @@ public class RobotFA {
         x = nx;
         y = ny;
         energy = energy - 1;
-        turns  = 0;      // moving resets the consecutive-turn counter
-        moved  = true;
+        turns = 0; // moving resets the consecutive-turn counter
+        moved = true;
 
-        updateLoop(cmd);
+        if (!updateLoop(cmd)) {
+            return false;
+        }
+
         return true;
     }
-
 
     // Turn left (L) or right (R)
     private boolean turn(String cmd) {
@@ -148,17 +153,18 @@ public class RobotFA {
         }
         turns = turns + 1;
 
-        updateLoop(cmd);
-
-        // Extra rule: the sequence (Forward then Right) repeated 4 times is a
-        // full clockwise loop and is not allowed
-        if (loop.equals("FRFRFRFR")) {
+        if (!updateLoop(cmd)) {
             return false;
         }
 
+        // Extra rule: the sequence (Forward then Right) repeated 4 times is a
+        // full clockwise loop and is not allowed
+        // if (loop.equals("FRFRFRFR")) {
+        // return false;
+        // }
+
         return true;
     }
-
 
     // Pick up an object
     private boolean pick() {
@@ -170,16 +176,15 @@ public class RobotFA {
 
         // Move to the next carrying state
         if (obj == Obj.N0) {
-            obj = Obj.H0;   // first ever pick
+            obj = Obj.H0; // first ever pick
         } else {
-            obj = Obj.H1;   // second or later pick
+            obj = Obj.H1; // second or later pick
         }
 
         turns = 0;
-        loop  = "";
+        loop = "";
         return true;
     }
-
 
     // Drop an object
     private boolean drop() {
@@ -189,12 +194,11 @@ public class RobotFA {
             return false;
         }
 
-        obj   = Obj.N1;   // dropped at least once — pick-drop task complete
+        obj = Obj.N1; // dropped at least once — pick-drop task complete
         turns = 0;
-        loop  = "";
+        loop = "";
         return true;
     }
-
 
     // Recharge energy
     private boolean recharge() {
@@ -205,74 +209,74 @@ public class RobotFA {
         }
 
         energy = 3;
-        turns  = 0;
-        loop   = "";
+        turns = 0;
+        // loop = "";
         return true;
     }
 
-
     // Loop tracker
-    // Keeps a running suffix of recent F and R commands.
-    // If it ever reaches "FRFRFRFR" the robot made a full clockwise circle.
-    private void updateLoop(String cmd) {
-
-        // Any command other than F or R breaks the loop pattern
-        if (!cmd.equals("F") && !cmd.equals("R")) {
+    // Returns false if a full clockwise loop is detected
+    private boolean updateLoop(String cmd) {
+        if (cmd.equals("STOP") || cmd.equals("L") || cmd.equals("P") || cmd.equals("D") || cmd.equals("B")) {
             loop = "";
-            return;
+            return true;
         }
 
-        loop = loop + cmd;
-
-        // Trim the front until it is a valid prefix of "FRFRFRFR"
-        String pattern = "FRFRFRFR";
-        while (loop.length() > 0 && !pattern.startsWith(loop)) {
-            loop = loop.substring(1);
+        if (cmd.equals("RECHARGE")) {
+            return true; // ignored, loop continues
         }
+
+        if (cmd.equals("F") || cmd.equals("R")) {
+            loop += cmd;
+            if (loop.contains("FRFRFRFR")) {
+                return false; // 🚫 reject
+            }
+        }
+
+        return true;
     }
 
-
-    // Direction helpers 
+    // Direction helpers
 
     // Returns the direction 90 degrees to the left
     private Dir turnLeft(Dir d) {
-        if (d == Dir.N) { 
-            return Dir.W; 
+        if (d == Dir.N) {
+            return Dir.W;
         }
-        if (d == Dir.W) { 
-            return Dir.S; 
+        if (d == Dir.W) {
+            return Dir.S;
         }
-        if (d == Dir.S) { 
-            return Dir.E; 
+        if (d == Dir.S) {
+            return Dir.E;
         }
-        return Dir.N;   // E -> N
+        return Dir.N; // E -> N
     }
 
     // Returns the direction 90 degrees to the right
     private Dir turnRight(Dir d) {
-        if (d == Dir.N) { 
-            return Dir.E; 
+        if (d == Dir.N) {
+            return Dir.E;
         }
-        if (d == Dir.E) { 
-            return Dir.S; 
+        if (d == Dir.E) {
+            return Dir.S;
         }
-        if (d == Dir.S) { 
-            return Dir.W; 
+        if (d == Dir.S) {
+            return Dir.W;
         }
-        return Dir.N;   // W -> N
+        return Dir.N; // W -> N
     }
 
     // Returns the opposite direction (used for moving backward)
     private Dir opposite(Dir d) {
-        if (d == Dir.N) { 
-            return Dir.S; 
+        if (d == Dir.N) {
+            return Dir.S;
         }
-        if (d == Dir.S) { 
-            return Dir.N; 
+        if (d == Dir.S) {
+            return Dir.N;
         }
-        if (d == Dir.E) { 
-            return Dir.W; 
+        if (d == Dir.E) {
+            return Dir.W;
         }
-        return Dir.E;   // W -> E
+        return Dir.E; // W -> E
     }
 }
